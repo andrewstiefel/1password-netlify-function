@@ -13,14 +13,14 @@ export default async (event) => {
         integrationVersion: "v1.0.0",
       });
       
-    const secret = await client.secrets.resolve("op://sdk-beta/hello-world/credential");
+    const secret = await client.secrets.resolve("op://sdk-beta/buttondown-api/credential");
     console.log(secret)
 
     const response = await fetch( 'https://api.buttondown.email/v1/subscribers', {
         method: 'POST',
         headers: {
-            Authorization: `Token ${BUTTONDOWN_API_KEY}`,
-            'Content-Type': 'application/json',
+          Authorization: `Token ${BUTTONDOWN_API_KEY}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email }),
     });
