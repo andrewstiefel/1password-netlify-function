@@ -29,5 +29,5 @@ export default async (request) => {
   let responseText = await response.text();
   console.log('Response:', responseText);
     
-  return new Response()
+  return new Response.redirect('https://andrewstiefel.com/almost', 303)
 };
