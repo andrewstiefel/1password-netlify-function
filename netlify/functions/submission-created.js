@@ -28,10 +28,5 @@ export default async (request) => {
   let responseText = await response.text();
   console.log('Response:', responseText);
     
-  return {
-    statusCode: 302,
-    headers: {
-      Location: "https://andrewstiefel.com/almost",
-    }
-  }
+  return new Response()
 };
