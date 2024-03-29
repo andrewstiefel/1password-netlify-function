@@ -3,8 +3,8 @@ import fetch from 'node-fetch';
 
 const { OP_SERVICE_ACCOUNT_TOKEN } = process.env;
 
-export default async (event) => {
-    const email = JSON.parse(event.body).payload.email
+export default async (request) => {
+    const email = JSON.parse(request.body).payload.email
     console.log(`Received a submission: ${email}`)
 
     const client = await createClient({
@@ -28,8 +28,5 @@ export default async (event) => {
     let responseText = await response.text();
     console.log('Response:', responseText);
     
-    return {
-      statusCode: 200,
-      body: JSON.stringify({})
-    }
+    return new Response()
 };
