@@ -1,7 +1,9 @@
 export default async (request, context) => {
   const body = await request.json();
-  const obj = JSON.parse(body);
-  console.log(obj.email)
+  console.log(body)
+
+  const obj = JSON.parse(body)
+  console.log(obj.payload.email)
     
   return new Response()
 };
