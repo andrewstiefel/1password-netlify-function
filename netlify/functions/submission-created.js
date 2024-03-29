@@ -15,7 +15,6 @@ export default async (request) => {
   });
   
   const secret = await client.secrets.resolve("op://sdk-beta/api-key/credential");
-  console.log(secret)
 
   const response = await fetch( 'https://api.buttondown.email/v1/subscribers', {
     method: 'POST',
@@ -29,5 +28,10 @@ export default async (request) => {
   let responseText = await response.text();
   console.log('Response:', responseText);
     
-  return new Response.redirect('https://andrewstiefel.com/almost', 303)
+  return {
+    statusCode: 302,
+    headers: {
+      Location: "https://andrewstiefel.com/almost",
+    }
+  }
 };
