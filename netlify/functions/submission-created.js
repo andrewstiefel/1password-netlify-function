@@ -1,5 +1,6 @@
-export default async (request) => {
-    console.log(request.body)
+export default async (request, context) => {
+  const body = await request.json()
+  console.log(body)
     
-    return new Response()
+  return new Response()
 };
